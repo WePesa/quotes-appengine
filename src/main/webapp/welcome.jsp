@@ -4,23 +4,27 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <jsp:include page="html_head.jsp"/>
+   <%@ include file="html_head.jsp" %>
 
    <body>
 
-      <jsp:include page="header.jsp"/>
+      <%@ include file="header.jsp" %>
 
       <div class="container">
          <div class="hero-unit"
             <c:choose>
                <c:when test="${user != null}">
-                  <h1> AAAA </h1>
+                  <h1> AAAA -- Can also add new quote now! </h1>
                </c:when>
                <c:otherwise>
-
-                  <h1>Hello!</h1>
-                  <p><a href="/guestbook.jsp">Guest Book</a></p>
-
+                  <div class="row">
+                     <div class="offset3 span6">
+                        <form action="search" class="form-search my-center">
+                           <input type="text" name="string" class="input-xlarge search-query">
+                           <button type="submit" class="btn">Search</button>
+                        </form>
+                     </div>
+                  </div>
                </c:otherwise>
             </c:choose>
          </div>
