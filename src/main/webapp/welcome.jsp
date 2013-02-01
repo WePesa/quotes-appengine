@@ -25,6 +25,15 @@
                         </form>
                      </div>
                   </div>
+                  <c:if test="${quotes != null}">
+                     <div class="row">
+                        <div class="offset2 span8">
+                           <c:forEach var="quote" items="quotes">
+                              <p>${quote.quote} -- ${quote.author}</p>
+                           </c:forEach>
+                        </div>
+                     </div>
+                  </c:if>
                </c:otherwise>
             </c:choose>
          </div>
