@@ -65,18 +65,20 @@
         <dependency>
             <groupId>javax.jdo</groupId>
             <artifactId>jdo-api</artifactId>
-            <version>3.0</version>
+            <version>3.0.1</version>
         </dependency>
+
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-core</artifactId>
-            <version>[3.2.0-m1, 3.2.99)</version>
+            <version>3.1.1</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-api-jdo</artifactId>
-            <version>[3.2.0-m1, 3.2.99)</version>
+            <version>3.1.1</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.google.appengine.orm</groupId>
@@ -88,6 +90,7 @@
 
     <build>
         <plugins>
+            <!-- Java compilation -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <version>2.5.1</version>
@@ -97,6 +100,7 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
+            <!-- War Packaging -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -113,11 +117,33 @@
                     </webResources>
                 </configuration>
             </plugin>
+            <!-- Appengine - maven -->
             <plugin>
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>${appengine.target.version}</version>
             </plugin>
+
+            <!-- maven - datanucleus -->
+            <plugin>
+                <groupId>org.datanucleus</groupId>
+                <artifactId>maven-datanucleus-plugin</artifactId>
+                <version>2.2.1</version>
+                <configuration>
+                    <mappingIncludes>**/entities/*.class</mappingIncludes>
+                    <log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration>
+                    <verbose>true</verbose>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
