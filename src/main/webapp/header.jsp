@@ -30,7 +30,7 @@
             <span class="icon-bar"></span>
          </a>
 -->
-         <a class="brand" href="#"><em>&ldquo;quotes&rdquo;</em></a>
+         <a class="brand" href="/welcome.jsp"><em>&ldquo;quotes&rdquo;</em></a>
          <div class="nav-collapse collapse">
             <ul class="nav">
                <li class="active"><a href="#">Home</a></li>

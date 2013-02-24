@@ -11,31 +11,34 @@
       <%@ include file="header.jsp" %>
 
       <div class="container">
-         <div class="hero-unit"
-            <c:choose>
-               <c:when test="${user != null}">
-                  <h1> AAAA -- Can also add new quote now! </h1>
-               </c:when>
-               <c:otherwise>
-                  <div class="row">
-                     <div class="offset3 span6">
-                        <form action="search" class="form-search my-center">
-                           <input type="text" name="string" class="input-xlarge search-query">
-                           <button type="submit" class="btn">Search</button>
-                        </form>
+         <div class="hero-unit">
+            <div class="row">
+               <div class="offset2 span6">
+                  <form action="search" class="form-search my-center">
+                     <div class="input-append">
+                        <input type="text" placeholder="Enter keywords..." name="string" class="span3 search-query">
+                        <button type="submit" class="btn">Search</button>
                      </div>
+                  </form>
+               </div>
+               <c:if test="${user != null}">
+                  <div class="span2">
+                     <a href="add.jsp" class="btn btn-primary" type="button">Add New</a>
                   </div>
-                  <c:if test="${quotes != null}">
-                     <div class="row">
-                        <div class="offset2 span8">
-                           <c:forEach var="quote" items="quotes">
-                              <p>${quote.quote} -- ${quote.author}</p>
-                           </c:forEach>
-                        </div>
-                     </div>
-                  </c:if>
-               </c:otherwise>
-            </c:choose>
+               </c:if>
+            </div>
+            <c:if test="${quotes != null}">
+               <div class="row">
+                  <div class="offset2 span8">
+                     <c:forEach var="q" items="${quotes}">
+                        <blockquote class="pull-right">
+                           <p><c:out value="${q.quote}"/></p>
+                           <small><c:out value="${q.author}"/></small>
+                        </blockquote>
+                     </c:forEach>
+                  </div>
+               </div>
+            </c:if>
          </div>
       </div>
 
