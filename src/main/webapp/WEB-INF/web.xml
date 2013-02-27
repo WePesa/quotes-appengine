@@ -12,6 +12,17 @@
         <servlet-name>search</servlet-name>
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>add</servlet-name>
+        <servlet-class>com.kak.quotes.AddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+
+
     <welcome-file-list>
         <welcome-file>welcome.jsp</welcome-file>
     </welcome-file-list>

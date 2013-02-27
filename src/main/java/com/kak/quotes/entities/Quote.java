@@ -49,7 +49,7 @@ public class Quote {
         this.quote = quote;
     }
 
-    public String getAruthor() {
+    public String getAuthor() {
         return author;
     }
 
