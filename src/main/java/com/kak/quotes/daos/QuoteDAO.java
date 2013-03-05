@@ -24,7 +24,8 @@ public class QuoteDAO {
       PersistenceManager pm = PMF.get().getPersistenceManager();
       Query q = pm.newQuery(Quote.class);
       q.setFilter("quote.startsWith(\"" + searchString + "\")");
-      //q.setFilter("quote.matches(\"%" + searchString + "%\")");
+      //q.setFilter("quote.matches(\".*" + searchString + ".*\")");
+      //q.setFilter("quote.indexOf(\"" + searchString + "\") >= 0");
 
       List<Quote> results = (List<Quote>) q.execute();
 System.out.println("123456");
